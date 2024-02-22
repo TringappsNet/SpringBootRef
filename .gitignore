@@ -1,5 +1,6 @@
 # General
-.gradle
+gradlew
+.gradle/
 /build
 /target
 /.idea
@@ -35,4 +36,3 @@ mvnDebug.cmd
 # Spring Boot
 /src/main/resources/application.properties
 /src/main/resources/application-*.properties
-/src
