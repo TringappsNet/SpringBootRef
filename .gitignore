@@ -1,5 +1,7 @@
 # General
 gradlew
+gradlew.
+gradle
 .gradle/
 /build
 /target
@@ -9,30 +11,16 @@ gradlew
 /logs
 /node_modules
 
+
 # IntelliJ IDEA
 *.iml
 *.ipr
 *.iws
 .idea
 
-# Eclipse
-*.classpath
-*.project
-*.settings/
-.settings/
-*.launch
-*.ws
 
 # Maven
 /log
 /target
-mvnw
-mvnw.cmd
-mvnDebug
-mvnDebug.cmd
-*.pom.xml.tag
-*.pom.xml.releaseBackup
 
-# Spring Boot
-/src/main/resources/application.properties
-/src/main/resources/application-*.properties
+
