@@ -24,6 +24,12 @@ public class Controller {
         return registerService.GetRegisters();
     }
 
+    @GetMapping("api/v1/register")
+    public List<Register> GetRegisters1(){
+        return registerService.GetRegisters();
+    }
+
+
     @GetMapping("api/v1/registers/{register_Id}")
     public Optional<Register> GetRegister(@PathVariable("register_Id") Integer Id){
         return registerService.GetRegister(Id);
