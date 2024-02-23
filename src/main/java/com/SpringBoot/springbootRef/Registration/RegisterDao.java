@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface RegisterDao {
-    List<Register> selectallRegister();
+    List<Register> selectAllRegister();
 
     Optional<Register> selectRegister(Integer Id);
 

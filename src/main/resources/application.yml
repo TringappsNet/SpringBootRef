@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: dev
   datasource:
     url: jdbc:postgresql://192.168.1.50:5433/ops
     username: postgres
@@ -10,17 +12,4 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format-sql: true
-    show-sql: false
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: kameshkamesh12345@gmail.com
-    password: hvinsssqfulwwgio
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
-
-
+    show-sql: true

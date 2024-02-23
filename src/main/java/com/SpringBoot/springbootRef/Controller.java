@@ -20,54 +20,55 @@ public class Controller {
         this.registerService = registerService;
     }
     @GetMapping("api/v1/registers")
-    public List<Register> GetRegisters(){
-        return registerService.GetRegisters();
-    }
+    public List<Register> getRegisters() {
+        return registerService.getRegisters();
+    } // retrieving all users from the register Service.
 
     @GetMapping("api/v1/registers/{register_Id}")
-    public Optional<Register> GetRegister(@PathVariable("register_Id") Integer Id){
-        return registerService.GetRegister(Id);
-    }
+    public Optional<Register> getRegister(@PathVariable("register_Id") Integer Id) {
+        return registerService.getRegister(Id);
+    } // retrieving single user from the register Service based on the id.
+
     @PostMapping("api/v1/registers")
     public ResponseEntity<String> saveRegister(@RequestBody RegisterRequest registerrequest) throws Exception {
 
         System.out.println(registerrequest.username());
 
-        String res = registerService.addRegister(registerrequest);
+        String result = registerService.addRegister(registerrequest); // Adding user in Database using register service fetch the response in result variable
         ObjectMapper objectMapper = new ObjectMapper();
         int status = 400;
-        //String resmessage = "";
+
         try {
-            JsonNode jsonNode = objectMapper.readTree(res);
+            JsonNode jsonNode = objectMapper.readTree(result);
             // Extract the "status" value
             status = jsonNode.get("status").asInt();
-            //resmessage = String.valueOf(jsonNode.get("body"));
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return ResponseEntity.status(status).body(res);
+        return ResponseEntity.status(status).body(result); // returning Response to post method
     }
+
     @DeleteMapping("api/v1/registers/{register_id}")
-    public ResponseEntity<String> DeleteRegister(@PathVariable("register_id") Integer Id){
-        boolean Success =registerService.deleteRegisterById(Id);
+    public ResponseEntity<String> deleteRegister(@PathVariable("register_id") Integer Id) {
+        boolean Success =registerService.deleteRegisterById(Id); // Delete the user details using register service deleteRegisterById return response.
         if(Success){
-            return ResponseEntity.status(200).body("Deleted");
+            return ResponseEntity.status(200).body("Deleted"); // If successfully deleted Sending response as OK.
         }
         else{
-            return ResponseEntity.status(400).body("Unable to Delete");
+            return ResponseEntity.status(400).body("Unable to Delete");// If user not deleted Sending response as Bad Request.
         }
     }
 
     @PutMapping("api/v1/registers/{register_id}")
-    public ResponseEntity<String> editRegister(@PathVariable("register_id") Integer Id,@RequestBody RegisterRequest registerRequest){
-        boolean Success =registerService.editRegisterById(Id,registerRequest);
+    public ResponseEntity<String> editRegister(@PathVariable("register_id") Integer Id,@RequestBody RegisterRequest registerRequest) {
+        boolean Success =registerService.editRegisterById(Id,registerRequest); // Edit the user details using register service editRegisterById return response.
         if(Success){
-            return ResponseEntity.status(200).body("Updated");
+            return ResponseEntity.status(200).body("Updated");// If successfully edited Sending response as OK.
         }
         else{
-            return ResponseEntity.status(400).body("Unable to Update");
+            return ResponseEntity.status(400).body("Unable to Update");// If record not edited Sending response as Bad Request.
         }
     }
 }

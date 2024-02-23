@@ -18,21 +18,21 @@ public class Register {
             strategy = GenerationType.SEQUENCE,
             generator = "user_id_sequence"
     )
-    public Integer Id;
-    public String username;
+    private Integer Id;
+    private String username;
     private String password;
-    public Integer phonenumber;
-    public String email;
-    public String profile;
-    public String csvData;
+    private String phoneNumber;
+    private String email;
+    private String profile;
+    private String csvData;
     public String verified;
 
     public Register() {}
-    public Register(String username, String password, Integer phonenumber, String email, String profile, String csvData, String verified) {
-
+    public Register(Integer Id,String username, String password, String phoneNumber, String email, String profile, String csvData, String verified) {
+        this.Id = Id;
         this.username = username;
         this.password = password;
-        this.phonenumber = phonenumber;
+        this.phoneNumber = phoneNumber;
         this.email = email;
         this.profile = profile;
         this.csvData = csvData;
@@ -61,12 +61,12 @@ public class Register {
         this.password = password;
     }
 
-    public Integer getPhonenumber() {
-        return phonenumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhonenumber(Integer phonenumber) {
-        this.phonenumber = phonenumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
@@ -98,7 +98,7 @@ public class Register {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Register register = (Register) o;
-        return Objects.equals(username, register.username) && Objects.equals(password, register.password) && Objects.equals(phonenumber, register.phonenumber) && Objects.equals(email, register.email) && Objects.equals(profile, register.profile) && Objects.equals(csvData, register.csvData);
+        return Objects.equals(username, register.username) && Objects.equals(password, register.password) && Objects.equals(phoneNumber, register.phoneNumber) && Objects.equals(email, register.email) && Objects.equals(profile, register.profile) && Objects.equals(csvData, register.csvData);
     }
 
     public String getVerified() {
@@ -111,7 +111,7 @@ public class Register {
 
     @Override
     public int hashCode() {
-        return Objects.hash(username, password, phonenumber, email, profile, csvData, verified);
+        return Objects.hash(username, password, phoneNumber, email, profile, csvData, verified);
     }
 
 }
