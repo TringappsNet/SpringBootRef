@@ -10,10 +10,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -33,7 +29,6 @@ public class ControllerTest {
         mockMvc.perform(get("/api/v1/registers"))
                 .andExpect(status().isOk());
     }
-
     @Test
     public void testDeleteRegister() throws Exception {
         Integer id = 2603;
