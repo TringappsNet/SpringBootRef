@@ -7,6 +7,10 @@ public class ProductService {
         return null;
     }
     Optional<Product> getProduct(Long id) {
+<<<<<<< Updated upstream
         return null;
+=======
+        return Optional.empty();
+>>>>>>> Stashed changes
     }
 }
