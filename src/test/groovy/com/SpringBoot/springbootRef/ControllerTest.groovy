@@ -1,30 +1,32 @@
-package com.SpringBoot.springbootRef;
-
+import com.SpringBoot.springbootRef.Controller
 import com.SpringBoot.springbootRef.Registration.Register;
 import com.SpringBoot.springbootRef.Registration.RegisterRequest;
 import com.SpringBoot.springbootRef.Registration.RegisterService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-public class ControllerTests {
+public class ControllerTest {
+
+    private Controller controller;
 
     @Mock
     private RegisterService registerService;
 
-    @InjectMocks
-    private Controller controller;
-
     @BeforeEach
-    void setUp() {
-        registerService = mock(RegisterService.class);
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
         controller = new Controller(registerService);
     }
 
@@ -44,37 +46,28 @@ public class ControllerTests {
     }
 
     @Test
-    void testSearchRegister() {
-        // Mock data
-        Integer userId = 1;
+     void testGSearchRegister() {
+        // Mocking the behavior of RegisterService
         Register register = new Register();
-        Optional<Register> optionalRegister = Optional.of(register);
-        // Add mock behavior
-        when(registerService.getRegister(userId)).thenReturn(optionalRegister);
+        when(registerService.getRegister(1)).thenReturn(Optional.of(register));
 
-        // Test
-        Optional<Register> result = controller.getRegister(userId);
+        // Testing the controller method
+        Optional<Register> result = controller.getRegister(1);
 
-        // Verify
-        assertEquals(optionalRegister, result);
-        verify(registerService, times(1)).getRegister(userId);
+        assertEquals(register, result.get());
+        verify(registerService, times(1)).getRegister(1);
     }
 
-//    @Test
-//    void testSaveRegister() throws Exception {
-//        // Mock data
-//        RegisterRequest registerRequest = new RegisterRequest();
-//        ResponseEntity<String> responseEntity = ResponseEntity.status(HttpStatus.OK).body("Success");
-//        // Add mock behavior
-//        when(registerService.addRegister(registerRequest)).thenReturn("Success");
-//
-//        // Test
-//        ResponseEntity<String> result = controller.saveRegister(registerRequest);
-//
-//        // Verify
-//        assertEquals(responseEntity, result);
-//        verify(registerService, times(1)).addRegister(registerRequest);
-//    }
+    @Test
+     void testPostRegister() throws Exception {
+        RegisterRequest registerRequest = new RegisterRequest(1, "ritha", "hello", "9384979966", "ritha@gmail.com", "correct", "csvData", "yes");
+        when(registerService.addRegister(any(RegisterRequest.class))).thenReturn("{\"status\": 200}");
+
+        ResponseEntity<String> responseEntity = controller.saveRegister(registerRequest);
+
+        assertEquals(HttpStatus.OK.value(), responseEntity.getStatusCodeValue());
+        verify(registerService, times(1)).addRegister(any(RegisterRequest.class));
+    }
 
     @Test
     void testDeleteRegister() {
@@ -93,21 +86,14 @@ public class ControllerTests {
         verify(registerService, times(1)).deleteRegisterById(userId);
     }
 
-//    @Test
-//    void testEditRegister() {
-//        // Mock data
-//        Integer userId = 1;
-//        RegisterRequest registerRequest = new RegisterRequest();
-//        boolean success = true;
-//        ResponseEntity<String> responseEntity = ResponseEntity.status(HttpStatus.OK).body("Updated");
-//        // Add mock behavior
-//        when(registerService.editRegisterById(userId, registerRequest)).thenReturn(success);
-//
-//        // Test
-//        ResponseEntity<String> result = controller.editRegister(userId, registerRequest);
-//
-//        // Verify
-//        assertEquals(responseEntity, result);
-//        verify(registerService, times(1)).editRegisterById(userId, registerRequest);
-//    }
+    @Test
+     void testEditRegister() {
+        RegisterRequest registerRequest = new RegisterRequest(1, "ritha", "hello", "9384979966", "ritha@gmail.com", "correct", "csvData", "yes");
+        when(registerService.editRegisterById(1, registerRequest)).thenReturn(true);
+
+        ResponseEntity<String> responseEntity = controller.editRegister(1, registerRequest);
+
+        assertEquals(HttpStatus.OK.value(), responseEntity.getStatusCodeValue());
+        verify(registerService, times(1)).editRegisterById(1, registerRequest);
+    }
 }
