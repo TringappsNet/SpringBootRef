@@ -31,9 +31,7 @@ public class RegisterTest {
     public void testEqualsAndHashCode() {
         Register register1 = new Register(1,"user1", "password", "12345", "email@example.com", "profile", "csvData", "Yes");
         Register register2 = new Register(2, "user1", "password", "12345", "email@example.com", "profile", "csvData", "Yes");
-
         assertEquals(register1, register2);
-
         assertEquals(register1.hashCode(), register2.hashCode());
     }
 }

@@ -5,6 +5,10 @@ spring:
     url: jdbc:postgresql://192.168.1.50:5433/ops
     username: postgres
     password: admin
+    test:
+      test-on-borrow: true
+      test-on-borrow-validation-query: SELECT 1
+      test-on-borrow-validation-query-timeout: 50
   jpa:
     hibernate:
       ddl-auto: update
