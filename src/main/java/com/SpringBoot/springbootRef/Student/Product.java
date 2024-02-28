@@ -11,9 +11,6 @@ public class Product {
     private String name;
     private Double price;
 
-    private Long id; // Declaring id field as primary key
-    private String name; // Declaring name field
-    private Double price; // Declaring price field
 
     // Getter method for id field
     public Long getId() {
