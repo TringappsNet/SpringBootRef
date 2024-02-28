@@ -1,4 +1,4 @@
-package com_springboot_springbootref;
+package com.SpringBoot.springbootref;
 
 import com_springboot_springbootref_registration.Register;
 import com_springboot_springbootref_registration.RegisterRequest;

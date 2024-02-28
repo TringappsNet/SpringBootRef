@@ -1,4 +1,4 @@
-package com_springboot_springbootref;
+package com.SpringBoot.springbootref;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
