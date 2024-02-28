@@ -9,22 +9,7 @@ import java.util.Optional;
 @RequestMapping("/api/v1/products")
 public class ProductController {
 
-    private final ProductService productService;
-
-    @Autowired
-    public ProductController(ProductService productService) {
-        this.productService = productService;
-    }
-
-    @GetMapping
-    public List<Product> getProducts() {
-        return productService.getProducts();
-    }
-
-    @GetMapping("/{productId}")
-    public Optional<Product> getProduct(@PathVariable("productId") Long id) {
-        return productService.getProduct(id);
-    }
+    
     // Declare dependencies on command and query services
     private final ProductCommandService productCommandService;
     private final ProductQueryService productQueryService;
@@ -53,7 +38,17 @@ public class ProductController {
     public void deleteProduct(@PathVariable("productId") Long id) {
         productCommandService.deleteProduct(id);
     }
+    // Endpoint for retrieving all products
+    @GetMapping
+    public List<Product> getProducts() {
+        return productQueryService.getProducts();
+    }
 
+    // Endpoint for retrieving a product by ID
+    @GetMapping("/{productId}")
+    public Optional<Product> getProduct(@PathVariable("productId") Long id) {
+        return productQueryService.getProduct(id);
+    }
     
 //    @GetMapping
 //    public List<Product> getProducts() {
