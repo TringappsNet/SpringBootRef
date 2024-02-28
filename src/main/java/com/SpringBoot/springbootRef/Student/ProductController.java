@@ -8,7 +8,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/products")
 public class ProductController {
-<<<<<<< Updated upstream
+
     private final ProductService productService;
 
     @Autowired
@@ -25,7 +25,6 @@ public class ProductController {
     public Optional<Product> getProduct(@PathVariable("productId") Long id) {
         return productService.getProduct(id);
     }
-=======
     // Declare dependencies on command and query services
     private final ProductCommandService productCommandService;
     private final ProductQueryService productQueryService;
@@ -74,5 +73,5 @@ public class ProductController {
 //    public Optional<Product> getProduct(@PathVariable("productId") Long id) {
 //        return productService.getProduct(id);
 //    }
->>>>>>> Stashed changes
+
 }
