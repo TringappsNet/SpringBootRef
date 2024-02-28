@@ -1,5 +1,6 @@
 package com_springboot_springbootref;
 
+import groovy.transform.CompileStatic;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -7,6 +8,7 @@ import jakarta.persistence.SequenceGenerator;
 
 import java.util.Objects;
 
+@CompileStatic
 @Entity
 public class Register {
     @jakarta.persistence.Id
