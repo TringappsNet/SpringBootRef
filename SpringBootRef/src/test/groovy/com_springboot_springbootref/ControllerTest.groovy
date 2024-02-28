@@ -1,19 +1,11 @@
 package com_springboot_springbootref
-//
-//import com_springboot_springbootref.Controller
-//import com_springboot_springbootref.Register
-//import com_springboot_springbootref.RegisterRequest
-//import com_springboot_springbootref.RegisterService
+
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-
-import static org.junit.jupiter.api.Assertions.assertEquals
-import static org.mockito.ArgumentMatchers.any
-import static org.mockito.Mockito.*
 
 class ControllerTest {
     @Mock
