@@ -1,4 +1,4 @@
-package com.SpringBoot.springbootRef.Registration;
+package com_springboot_springbootref.Registration;
 
 import java.util.List;
 import java.util.Optional;

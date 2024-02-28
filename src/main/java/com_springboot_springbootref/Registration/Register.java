@@ -1,4 +1,4 @@
-package com.SpringBoot.springbootRef.Registration;
+package com_springboot_springbootref.Registration;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

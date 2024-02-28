@@ -1,8 +1,8 @@
-package com.SpringBoot.springbootRef
+package com_springboot_springbootref
 
-import com.SpringBoot.springbootRef.Registration.Register
-import com.SpringBoot.springbootRef.Registration.RegisterRequest
-import com.SpringBoot.springbootRef.Registration.RegisterService
+import com_springboot_springbootref.Registration.Register
+import com_springboot_springbootref.Registration.RegisterService
+import com_springboot_springbootref.Registration.RegisterRequest
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.Mock
