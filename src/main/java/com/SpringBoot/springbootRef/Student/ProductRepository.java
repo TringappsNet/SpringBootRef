@@ -5,8 +5,4 @@ import org.springframework.stereotype.Repository;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-=======
-
-public interface ProductRepository extends JpaRepository<Product, Long> {
->>>>>>> Stashed changes
 }
