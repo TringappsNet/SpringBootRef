@@ -1,19 +1,16 @@
 package com.SpringBoot.springbootRef.Student;
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
 public class Product {
     @Id
-<<<<<<< Updated upstream
+
     private Long id;
     private String name;
     private Double price;
-=======
+
     private Long id; // Declaring id field as primary key
     private String name; // Declaring name field
     private Double price; // Declaring price field
@@ -47,5 +44,5 @@ public class Product {
     public void setPrice(Double price) {
         this.price = price;
     }
->>>>>>> Stashed changes
+
 }
