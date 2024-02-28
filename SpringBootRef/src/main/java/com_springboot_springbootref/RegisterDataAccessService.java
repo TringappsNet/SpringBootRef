@@ -1,4 +1,4 @@
-package com_springboot_springbootref_registration;
+package com_springboot_springbootref;
 
 import org.springframework.stereotype.Repository;
 
