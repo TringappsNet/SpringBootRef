@@ -1,8 +1,8 @@
-package com.SpringBoot.springbootRef;
+package com.SpringBoot.springbootref;
 
-import com.SpringBoot.springbootRef.Registration.Register;
-import com.SpringBoot.springbootRef.Registration.RegisterRequest;
-import com.SpringBoot.springbootRef.Registration.RegisterService;
+import com.SpringBoot.springbootref.Registration.Register;
+import com.SpringBoot.springbootref.Registration.RegisterRequest;
+import com.SpringBoot.springbootref.Registration.RegisterService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.ResponseEntity;

@@ -1,8 +1,8 @@
-package com.SpringBoot.springbootRef;
+package com.SpringBoot.springbootref;
 
-import com.SpringBoot.springbootRef.Registration.Register;
-import com.SpringBoot.springbootRef.Registration.RegisterRequest;
-import com.SpringBoot.springbootRef.Registration.RegisterService;
+import com.SpringBoot.springbootref.Registration.Register;
+import com.SpringBoot.springbootref.Registration.RegisterRequest;
+import com.SpringBoot.springbootref.Registration.RegisterService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -10,14 +10,15 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+
 
 public class ControllerTest {
 
@@ -51,6 +52,7 @@ public class ControllerTest {
         when(registerService.getRegister(1)).thenReturn(Optional.of(register));
 
         Optional<Register> result = controller.getRegister(1);
+
 
         assertEquals(register, result.get());
         verify(registerService, times(1)).getRegister(1);

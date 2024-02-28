@@ -1,7 +1,7 @@
-import com.SpringBoot.springbootRef.Controller
-import com.SpringBoot.springbootRef.Registration.Register
-import com.SpringBoot.springbootRef.Registration.RegisterRequest
-import com.SpringBoot.springbootRef.Registration.RegisterService
+import com.SpringBoot.springbootref.Controller
+import com.SpringBoot.springbootref.Registration.Register
+import com.SpringBoot.springbootref.Registration.RegisterRequest
+import com.SpringBoot.springbootref.Registration.RegisterService
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.Mock
