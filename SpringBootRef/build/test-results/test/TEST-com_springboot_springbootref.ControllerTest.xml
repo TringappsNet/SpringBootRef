@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com_springboot_springbootref.ControllerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-02-28T11:53:58" hostname="LAPTOP-CC3VEJ8G" time="3.026">
+  <properties/>
+  <testcase name="testEditRegister()" classname="com_springboot_springbootref.ControllerTest" time="2.346"/>
+  <testcase name="testPostRegister()" classname="com_springboot_springbootref.ControllerTest" time="0.582"/>
+  <testcase name="testDeleteRegister()" classname="com_springboot_springbootref.ControllerTest" time="0.035"/>
+  <testcase name="testGSearchRegister()" classname="com_springboot_springbootref.ControllerTest" time="0.037"/>
+  <testcase name="testGetRegisters()" classname="com_springboot_springbootref.ControllerTest" time="0.012"/>
+  <system-out><![CDATA[ritha
+]]></system-out>
+  <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (C:\Users\Tringapps\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.14.11\f9cb566608fbac6bc7bf54901a7aa11543a989ee\byte-buddy-agent-1.14.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>
