@@ -7,6 +7,10 @@ import org.mockito.MockitoAnnotations
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 
+/**
+ * Test class for the `Controller` class.
+ */
+
 class ControllerTest {
     @Mock
     RegisterService registerService
@@ -18,6 +22,10 @@ class ControllerTest {
         MockitoAnnotations.openMocks(this)
         controller = new Controller(registerService)
     }
+
+    /**
+     * Tests the `getRegisters()` method.
+     */
 
     @Test
     void testGetRegisters() {
@@ -34,6 +42,10 @@ class ControllerTest {
         verify(registerService, times(1)).getRegisters()
     }
 
+    /**
+     * Tests the `getRegister(int id)` method.
+     */
+
     @Test
     void testGSearchRegister() {
         def register = new Register()
@@ -45,6 +57,10 @@ class ControllerTest {
         verify(registerService, times(1)).getRegister(1)
     }
 
+    /**
+     * Tests the `saveRegister(RegisterRequest request)` method.
+     */
+
     @Test
     void testPostRegister() throws Exception {
         def registerRequest = new RegisterRequest(1, "ritha", "hello", "9384979966", "ritha@gmail.com", "correct", "csvData", "yes")
@@ -55,6 +71,10 @@ class ControllerTest {
         assertEquals(HttpStatus.OK.value(), responseEntity.getStatusCodeValue())
         verify(registerService, times(1)).addRegister(any(RegisterRequest))
     }
+
+    /**
+     * Tests the `deleteRegister(int id)` method.
+     */
 
     @Test
     void testDeleteRegister() {
@@ -70,6 +90,11 @@ class ControllerTest {
         assertEquals(responseEntity, result)
         verify(registerService, times(1)).deleteRegisterById(userId)
     }
+
+    /**
+     * Tests the `editRegister(int id, RegisterRequest request)` method.
+     */
+
 
     @Test
     void testEditRegister() {
