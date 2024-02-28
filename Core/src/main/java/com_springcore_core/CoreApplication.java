@@ -2,15 +2,15 @@ package com_springcore_core;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 // Main application entry point
-@SpringBootApplication // (Potentially unused in this context)
+@SpringBootApplication
 public class CoreApplication {
 
 	public static void main(String[] args) {
-		// Create Spring application context using XML configuration
-		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		// Create Spring application context using annotation configuration
+		ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
 
 		// Retrieve beans from the context
 		LifeCycleBean lifeCycleBean = context.getBean(LifeCycleBean.class);
