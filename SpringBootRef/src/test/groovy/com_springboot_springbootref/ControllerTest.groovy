@@ -95,7 +95,6 @@ class ControllerTest {
      * Tests the `editRegister(int id, RegisterRequest request)` method.
      */
 
-
     @Test
     void testEditRegister() {
         def registerRequest = new RegisterRequest(1, "ritha", "hello", "9384979966", "ritha@gmail.com", "correct", "csvData", "yes")
