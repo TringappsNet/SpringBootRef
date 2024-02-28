@@ -1,9 +1,6 @@
 package com.SpringBoot.springbootRef.Student;
 import org.springframework.stereotype.Service;
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 import java.util.List;
 import java.util.Optional;
 
