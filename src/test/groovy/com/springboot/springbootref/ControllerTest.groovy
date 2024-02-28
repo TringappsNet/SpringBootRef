@@ -28,7 +28,7 @@ class ControllerTest {
     private RegisterService registerService
 
     @BeforeEach
-    public void setUp() {
+     void setUp() {
         MockitoAnnotations.openMocks(this)
         controller = new Controller(registerService)
     }
@@ -45,7 +45,7 @@ class ControllerTest {
 
         // Verify
         Assertions.assertEquals(registers, result)
-        Mockito.verify(registerService, times(1)).registers()
+        verify(registerService, times(1)).registers()
     }
 
     @Test
@@ -58,7 +58,7 @@ class ControllerTest {
         Optional<Register> result = controller.register(1)
 
         Assertions.assertEquals(register, result.get())
-        Mockito.verify(registerService, times(1)).register(1)
+        verify(registerService, times(1)).register(1)
     }
 
     @Test
@@ -70,7 +70,7 @@ class ControllerTest {
         ResponseEntity<String> responseEntity = controller.saveRegister(registerRequest)
 
         Assertions.assertEquals(HttpStatus.OK.value(), responseEntity.statusCode.value())
-        Mockito.verify(registerService, times(1)).addRegister(Mockito.any(RegisterRequest))
+        verify(registerService, times(1)).addRegister(Mockito.any(RegisterRequest))
     }
 
     @Test
@@ -87,7 +87,7 @@ class ControllerTest {
 
         // Verify
         Assertions.assertEquals(responseEntity, result)
-        Mockito.verify(registerService, times(1)).deleteRegisterById(userId)
+        verify(registerService, times(1)).deleteRegisterById(userId)
     }
 
     @Test
@@ -99,6 +99,6 @@ class ControllerTest {
         ResponseEntity<String> responseEntity = controller.editRegister(1, registerRequest)
 
         Assertions.assertEquals(HttpStatus.OK.value(), responseEntity.statusCode.value())
-        Mockito.verify(registerService, times(1)).editRegisterById(1, registerRequest)
+        verify(registerService, times(1)).editRegisterById(1, registerRequest)
     }
 }
