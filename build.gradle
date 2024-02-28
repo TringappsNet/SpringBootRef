@@ -26,17 +26,9 @@ sourceSets {
 			srcDirs = ['src/main/resources']
 		}
 	}
-	test {
-		groovy {
-			srcDirs = ['src/test/groovy', 'src/test/groovy']
-		}
-		java {
-			srcDirs = ['src/test/groovy', 'src/test/java']
-		}
-
 
 	}
-}
+
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
