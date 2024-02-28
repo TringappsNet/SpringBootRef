@@ -20,13 +20,13 @@ public class Controller {
         this.registerService = registerService;
     }
     @GetMapping("api/v1/registers")
-    public List<Register> getRegisters() {
-        return registerService.getRegisters();
+    public List<Register> registers() {
+        return registerService.registers();
     } // retrieving all users from the register Service.
 
     @GetMapping("api/v1/registers/{register_Id}")
-    public Optional<Register> getRegister(@PathVariable("register_Id") Integer Id) {
-        return registerService.getRegister(Id);
+    public Optional<Register> register(@PathVariable("register_Id") Integer Id) {
+        return registerService.register(Id);
     } // retrieving single user from the register Service based on the id.
 
     @PostMapping("api/v1/registers")

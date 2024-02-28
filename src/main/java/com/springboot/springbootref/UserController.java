@@ -37,8 +37,7 @@ public class UserController {
 
     @PutMapping("/{id}/edit")
     public User edit(@PathVariable Long id, @RequestBody User user) {
-        User user1 = userJPAService.edit(user,id);
-        return user;
+        return userJPAService.edit(user,id);
     }
     @DeleteMapping("/{id}/delete")
     public String delete(@PathVariable Long id) {

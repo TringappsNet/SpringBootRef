@@ -1,19 +1,25 @@
 package com.springboot.springbootref
 
-import static org.mockito.Mockito.*
-import static org.junit.jupiter.api.Assertions.assertEquals
+import static org.mockito.Mockito.verify
+import static org.mockito.Mockito.times
 import com.springboot.springbootref.registration.Register
 import com.springboot.springbootref.registration.RegisterRequest
 import com.springboot.springbootref.registration.RegisterService
+import groovy.transform.CompileStatic
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.junit.jupiter.api.Assertions
+import org.mockito.Mockito
 
 
-
+/**
+ * This is a test controller for handling requests.
+ */
+@CompileStatic
 class ControllerTest {
 
     private Controller controller
@@ -30,40 +36,41 @@ class ControllerTest {
     @Test
     void testGetRegisters() {
         // Mock data
-        List<Register> registers = new ArrayList<>()
+        List<Register> registers = []
         // Add mock behavior
-        when(registerService.getRegisters()).thenReturn(registers)
+        Mockito.when(registerService.registers()).thenReturn(registers)
 
         // Test
-        List<Register> result = controller.getRegisters()
+        List<Register> result = controller.registers()
 
         // Verify
-        assertEquals(registers, result)
-        verify(registerService, times(1)).getRegisters()
+        Assertions.assertEquals(registers, result)
+        Mockito.verify(registerService, times(1)).registers()
     }
 
     @Test
-     void testGSearchRegister() {
+    void testGSearchRegister() {
         // Mocking the behavior of RegisterService
         Register register = new Register()
-        when(registerService.getRegister(1)).thenReturn(Optional.of(register))
+        Mockito.when(registerService.register(1)).thenReturn(Optional.of(register))
 
         // Testing the controller method
-        Optional<Register> result = controller.getRegister(1)
+        Optional<Register> result = controller.register(1)
 
-        assertEquals(register, result.get())
-        verify(registerService, times(1)).getRegister(1)
+        Assertions.assertEquals(register, result.get())
+        Mockito.verify(registerService, times(1)).register(1)
     }
 
     @Test
-     void testPostRegister() throws Exception {
-        RegisterRequest registerRequest = new RegisterRequest(1, "ritha", "hello", "9384979966", "ritha@gmail.com", "correct", "csvData", "yes")
-        when(registerService.addRegister(any(RegisterRequest.class))).thenReturn("{\"status\": 200}")
+    void testPostRegister() throws Exception {
+        RegisterRequest registerRequest = new RegisterRequest(1, 'ritha', "hello", "9384979966",
+                "ritha@gmail.com", "correct", "csvData", "yes")
+        Mockito.when(registerService.addRegister(Mockito.any(RegisterRequest))).thenReturn('{\"status\": 200}')
 
         ResponseEntity<String> responseEntity = controller.saveRegister(registerRequest)
 
-        assertEquals(HttpStatus.OK.value(), responseEntity.getStatusCodeValue())
-        verify(registerService, times(1)).addRegister(any(RegisterRequest.class))
+        Assertions.assertEquals(HttpStatus.OK.value(), responseEntity.statusCode.value())
+        Mockito.verify(registerService, times(1)).addRegister(Mockito.any(RegisterRequest))
     }
 
     @Test
@@ -71,26 +78,27 @@ class ControllerTest {
         // Mock data
         Integer userId = 1
         boolean success = true
-        ResponseEntity<String> responseEntity = ResponseEntity.status(HttpStatus.OK).body("Deleted")
+        ResponseEntity<String> responseEntity = ResponseEntity.status(HttpStatus.OK).body('Deleted')
         // Add mock behavior
-        when(registerService.deleteRegisterById(userId)).thenReturn(success)
+        Mockito.when(registerService.deleteRegisterById(userId)).thenReturn(success)
 
         // Test
         ResponseEntity<String> result = controller.deleteRegister(userId)
 
         // Verify
-        assertEquals(responseEntity, result)
-        verify(registerService, times(1)).deleteRegisterById(userId)
+        Assertions.assertEquals(responseEntity, result)
+        Mockito.verify(registerService, times(1)).deleteRegisterById(userId)
     }
 
     @Test
-     void testEditRegister() {
-        RegisterRequest registerRequest = new RegisterRequest(1, "ritha", "hello", "9384979966", "ritha@gmail.com", "correct", "csvData", "yes")
-        when(registerService.editRegisterById(1, registerRequest)).thenReturn(true)
+    void testEditRegister() {
+        RegisterRequest registerRequest = new RegisterRequest(1, "ritha", "hello", "9384979966",
+                "ritha@gmail.com", "correct", "csvData", "yes")
+        Mockito.when(registerService.editRegisterById(1, registerRequest)).thenReturn(true)
 
         ResponseEntity<String> responseEntity = controller.editRegister(1, registerRequest)
 
-        assertEquals(HttpStatus.OK.value(), responseEntity.getStatusCodeValue())
-        verify(registerService, times(1)).editRegisterById(1, registerRequest)
+        Assertions.assertEquals(HttpStatus.OK.value(), responseEntity.statusCode.value())
+        Mockito.verify(registerService, times(1)).editRegisterById(1, registerRequest)
     }
 }
