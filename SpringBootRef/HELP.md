@@ -1,5 +1,7 @@
 # Getting Started
 
+## With Aggregate
+
 ### Reference Documentation
 
 For further reference, please consider the following sections:
