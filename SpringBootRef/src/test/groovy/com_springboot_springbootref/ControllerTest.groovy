@@ -7,11 +7,16 @@ import org.mockito.MockitoAnnotations
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 
+import static org.junit.jupiter.api.Assertions.assertEquals
+import static org.mockito.ArgumentMatchers.any
+import static org.mockito.Mockito.*
+
 /**
  * Test class for the `Controller` class.
  */
 
 class ControllerTest {
+
     @Mock
     RegisterService registerService
 
