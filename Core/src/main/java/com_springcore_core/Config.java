@@ -1,4 +1,4 @@
-package com.SpringCore.Core;
+package com_springcore_core;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

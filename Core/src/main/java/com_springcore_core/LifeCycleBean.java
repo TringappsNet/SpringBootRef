@@ -1,4 +1,4 @@
-package com.SpringCore.Core;
+package com_springcore_core;
 
 
 import org.springframework.beans.factory.DisposableBean;

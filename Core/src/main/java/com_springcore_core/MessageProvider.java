@@ -1,4 +1,4 @@
-package com.SpringCore.Core;
+package com_springcore_core;
 
 
 public interface MessageProvider {
