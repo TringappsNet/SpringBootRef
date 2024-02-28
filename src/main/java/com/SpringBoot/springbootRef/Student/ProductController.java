@@ -54,17 +54,7 @@ public class ProductController {
         productCommandService.deleteProduct(id);
     }
 
-    // Endpoint for retrieving all products
-    @GetMapping
-    public List<Product> getProducts() {
-        return productQueryService.getProducts();
-    }
-
-    // Endpoint for retrieving a product by ID
-    @GetMapping("/{productId}")
-    public Optional<Product> getProduct(@PathVariable("productId") Long id) {
-        return productQueryService.getProduct(id);
-    }
+    
 //    @GetMapping
 //    public List<Product> getProducts() {
 //        return productService.getProducts();
