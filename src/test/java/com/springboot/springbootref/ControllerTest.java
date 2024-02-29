@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.springboot.springbootref.registration.RegisterRequest;
 import com.springboot.springbootref.registration.RegisterService;
 import com.springboot.springbootref.registration.Register;
+import groovy.transform.CompileStatic;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -18,8 +19,11 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
-
-public class ControllerJunit {
+/**
+ * Test class for the Controller class.
+ */
+@CompileStatic
+class ControllerTest {
 
     @InjectMocks
     private Controller controller;
