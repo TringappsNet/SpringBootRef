@@ -14,8 +14,6 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.junit.jupiter.api.Assertions
 import org.mockito.Mockito
-
-
 /**
  * This is a test controller for handling requests.
  */
@@ -28,7 +26,7 @@ class ControllerTest {
     private RegisterService registerService
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         MockitoAnnotations.openMocks(this)
         controller = new Controller(registerService)
     }
@@ -62,9 +60,9 @@ class ControllerTest {
     }
 
     @Test
-    void testPostRegister() throws Exception {
-        RegisterRequest registerRequest = new RegisterRequest(1, 'ritha', "hello", "9384979966",
-                "ritha@gmail.com", "correct", "csvData", "yes")
+    void testPostRegister() {
+        RegisterRequest registerRequest = new RegisterRequest(1, 'ritha', 'hello', '9384979966',
+                'ritha@gmail.com', 'correct', 'csvData', 'yes')
         Mockito.when(registerService.addRegister(Mockito.any(RegisterRequest))).thenReturn('{\"status\": 200}')
 
         ResponseEntity<String> responseEntity = controller.saveRegister(registerRequest)
@@ -92,8 +90,8 @@ class ControllerTest {
 
     @Test
     void testEditRegister() {
-        RegisterRequest registerRequest = new RegisterRequest(1, "ritha", "hello", "9384979966",
-                "ritha@gmail.com", "correct", "csvData", "yes")
+        RegisterRequest registerRequest = new RegisterRequest(1, 'ritha', 'hello', '9384979966',
+                'ritha@gmail.com', 'correct', 'csvData', 'yes')
         Mockito.when(registerService.editRegisterById(1, registerRequest)).thenReturn(true)
 
         ResponseEntity<String> responseEntity = controller.editRegister(1, registerRequest)
@@ -101,4 +99,5 @@ class ControllerTest {
         Assertions.assertEquals(HttpStatus.OK.value(), responseEntity.statusCode.value())
         Mockito.verify(registerService, times(1)).editRegisterById(1, registerRequest)
     }
+
 }
