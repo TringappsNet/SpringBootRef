@@ -16,9 +16,6 @@ import org.junit.jupiter.api.Assertions
 import org.mockito.Mockito
 
 
-/**
- * This is a test controller for handling requests.
- */
 @CompileStatic
 class ControllerTest {
 
@@ -28,7 +25,7 @@ class ControllerTest {
     private RegisterService registerService
 
     @BeforeEach
-     void setUp() {
+    void setUp() {
         MockitoAnnotations.openMocks(this)
         controller = new Controller(registerService)
     }
@@ -45,7 +42,7 @@ class ControllerTest {
 
         // Verify
         Assertions.assertEquals(registers, result)
-        verify(registerService, times(1)).registers()
+        Mockito.verify(registerService, times(1)).registers()
     }
 
     @Test
@@ -58,19 +55,19 @@ class ControllerTest {
         Optional<Register> result = controller.register(1)
 
         Assertions.assertEquals(register, result.get())
-        verify(registerService, times(1)).register(1)
+        Mockito.verify(registerService, times(1)).register(1)
     }
 
     @Test
-    void testPostRegister() throws Exception {
-        RegisterRequest registerRequest = new RegisterRequest(1, 'ritha', "hello", "9384979966",
-                "ritha@gmail.com", "correct", "csvData", "yes")
+    void testPostRegister() {
+        RegisterRequest registerRequest = new RegisterRequest(1, 'ritha', 'hello', '9384979966',
+                'ritha@gmail.com', 'correct', 'csvData', 'yes')
         Mockito.when(registerService.addRegister(Mockito.any(RegisterRequest))).thenReturn('{\"status\": 200}')
 
         ResponseEntity<String> responseEntity = controller.saveRegister(registerRequest)
 
         Assertions.assertEquals(HttpStatus.OK.value(), responseEntity.statusCode.value())
-        verify(registerService, times(1)).addRegister(Mockito.any(RegisterRequest))
+        Mockito.verify(registerService, times(1)).addRegister(Mockito.any(RegisterRequest))
     }
 
     @Test
@@ -87,18 +84,19 @@ class ControllerTest {
 
         // Verify
         Assertions.assertEquals(responseEntity, result)
-        verify(registerService, times(1)).deleteRegisterById(userId)
+        Mockito.verify(registerService, times(1)).deleteRegisterById(userId)
     }
 
     @Test
     void testEditRegister() {
-        RegisterRequest registerRequest = new RegisterRequest(1, "ritha", "hello", "9384979966",
-                "ritha@gmail.com", "correct", "csvData", "yes")
+        RegisterRequest registerRequest = new RegisterRequest(1, 'ritha', 'hello', '9384979966',
+                'ritha@gmail.com', 'correct', 'csvData', 'yes')
         Mockito.when(registerService.editRegisterById(1, registerRequest)).thenReturn(true)
 
         ResponseEntity<String> responseEntity = controller.editRegister(1, registerRequest)
 
         Assertions.assertEquals(HttpStatus.OK.value(), responseEntity.statusCode.value())
-        verify(registerService, times(1)).editRegisterById(1, registerRequest)
+        Mockito.verify(registerService, times(1)).editRegisterById(1, registerRequest)
     }
+
 }

@@ -19,7 +19,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-public class controllertest {
+public class ControllerJunit {
 
     @InjectMocks
     private Controller controller;
@@ -56,7 +56,7 @@ public class controllertest {
 
     @Test
     public void testSaveRegisterSuccess() throws Exception {
-        RegisterRequest registerRequest = new RegisterRequest(1, "ritha", "hello", "9384979966", "ritha@gmail.com", "correct", "csvData", "yes");
+        RegisterRequest registerRequest = new RegisterRequest(1, "Anand", "Pass#12", "987654321", "anand@mail.com", "correct", "csvData", "yes");
         String result = "{\"status\": 200}";
         when(registerService.addRegister(registerRequest)).thenReturn(result);
 
@@ -91,7 +91,7 @@ public class controllertest {
     @Test
     public void testEditRegister() {
         Integer Id = 1;
-        RegisterRequest registerRequest = new RegisterRequest(1, "ritha", "hello", "9384979966", "ritha@gmail.com", "correct", "csvData", "yes");
+        RegisterRequest registerRequest = new RegisterRequest(1, "Anand", "Pass123", "987654321", "Anand@mail.com", "correct", "csvData", "yes");
         boolean success = true;
         when(registerService.editRegisterById(Id, registerRequest)).thenReturn(success);
 
