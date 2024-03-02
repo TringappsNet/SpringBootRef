@@ -1,9 +1,9 @@
-package com.springboot.springbootref.producer;
+package com.springboot.springbootref.rabbitmq.producer;
 
-import com.springboot.springbootref.config.RabbitMQConfig;
-import com.springboot.springbootref.entity.Order;
-import com.springboot.springbootref.entity.OrderDt;
-import com.springboot.springbootref.entity.OrderRequest;
+import com.springboot.springbootref.rabbitmq.config.RabbitMQConfig;
+import com.springboot.springbootref.rabbitmq.entity.Order;
+import com.springboot.springbootref.rabbitmq.entity.OrderDt;
+import com.springboot.springbootref.rabbitmq.entity.OrderRequest;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

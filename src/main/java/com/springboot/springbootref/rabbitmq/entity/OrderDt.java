@@ -1,4 +1,4 @@
-package com.springboot.springbootref.entity;
+package com.springboot.springbootref.rabbitmq.entity;
 
 
 //import lombok.Data;

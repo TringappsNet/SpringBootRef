@@ -1,7 +1,7 @@
-package com.springboot.springbootref.consumer;
+package com.springboot.springbootref.rabbitmq.consumer;
 
-import com.springboot.springbootref.config.RabbitMQConfig;
-import com.springboot.springbootref.entity.OrderDt;
+import com.springboot.springbootref.rabbitmq.config.RabbitMQConfig;
+import com.springboot.springbootref.rabbitmq.entity.OrderDt;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
