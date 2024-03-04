@@ -3,7 +3,7 @@ package com.springboot.springbootref.user;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "old_users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

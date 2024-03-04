@@ -33,8 +33,6 @@ dependencies {
 	implementation 'org.glassfish.jaxb:jaxb-runtime:3.0.2'
 	testImplementation 'io.cucumber:cucumber-junit:6.10.4'
 	implementation 'io.cucumber:datatable:7.15.0'
-	testImplementation 'io.rest-assured:rest-assured:4.4.0'
-	implementation 'io.rest-assured:json-path:5.3.2'
 	implementation platform('com.fasterxml.jackson:jackson-bom:2.12.5')
 	implementation 'com.fasterxml.jackson.core:jackson-databind'
 	//implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.5'
