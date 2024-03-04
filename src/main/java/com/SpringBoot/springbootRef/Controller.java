@@ -30,7 +30,7 @@ public class Controller {
     } // retrieving single user from the register Service based on the id.
 
     @PostMapping("api/v1/registers")
-    public ResponseEntity<String> saveRegister(@RequestBody RegisterRequest registerrequest) throws Exception {
+    public RegisterRequest saveRegister(@RequestBody RegisterRequest registerrequest) throws Exception {
 
         System.out.println(registerrequest.username());
 
@@ -47,7 +47,7 @@ public class Controller {
             e.printStackTrace();
         }
 
-        return ResponseEntity.status(status).body(result); // returning Response to post method
+        return registerrequest; // returning Response to post method
     }
 
     @DeleteMapping("api/v1/registers/{register_id}")

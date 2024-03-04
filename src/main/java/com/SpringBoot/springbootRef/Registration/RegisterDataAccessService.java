@@ -40,6 +40,7 @@ public class RegisterDataAccessService implements RegisterDao{
 
     @Override
     public boolean duplicateEmail(String email) { // Checking email is already registered or not.
+        System.out.println(email+"duplicate");
         return registerRepository.findAll().stream().anyMatch(s -> s.getEmail().equals(email));
     }
 
