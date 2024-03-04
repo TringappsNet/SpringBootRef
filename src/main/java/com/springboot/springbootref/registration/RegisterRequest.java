@@ -1,4 +1,4 @@
-package com.SpringBoot.springbootRef.Registration;
+package com.springboot.springbootref.registration;
 
 public record RegisterRequest(Integer Id,String username, String password, String phoneNumber, String email, String profile, String csvData, String verified) {
 }
