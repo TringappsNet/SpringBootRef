@@ -47,8 +47,33 @@ dependencies {
 	implementation 'org.bouncycastle:bcpkix-jdk15on:1.69'
 	testImplementation 'org.codehaus.groovy:groovy-all:3.0.20'
 
+	testImplementation 'io.cucumber:cucumber-java:6.10.4'
+	implementation 'io.cucumber:cucumber-core:6.10.4'
+	implementation 'io.cucumber:cucumber-jvm:6.10.4'
+	implementation 'javax.xml.bind:jaxb-api:2.3.1' // or any compatible version
+	implementation 'jakarta.xml.bind:jakarta.xml.bind-api:3.0.1'
+	implementation 'org.glassfish.jaxb:jaxb-runtime:3.0.2'
+	testImplementation 'io.cucumber:cucumber-junit:6.10.4'
+	implementation 'io.cucumber:datatable:7.15.0'
+	implementation platform('com.fasterxml.jackson:jackson-bom:2.12.5')
+	implementation 'com.fasterxml.jackson.core:jackson-databind'
+	//implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.5'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+	testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+task cucumber() {
+	dependsOn assemble, testClasses
+	doLast {
+		javaexec {
+			main = "io.cucumber.core.cli.Main"
+			classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+			args = ['--plugin', 'pretty', '--glue', 'com.SpringBoot.springbootRef.cucumber.stepsdef', 'src/test/resources/features']
+		}
+	}
 }
