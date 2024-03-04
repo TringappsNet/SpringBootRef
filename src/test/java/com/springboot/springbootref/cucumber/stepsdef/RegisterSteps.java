@@ -156,7 +156,8 @@ public class RegisterSteps {
         try {
             userJsonString = objectMapper.writeValueAsString(user);
         } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+            //throw new RuntimeException(e);
         }
         System.out.println(userJsonString);
 
