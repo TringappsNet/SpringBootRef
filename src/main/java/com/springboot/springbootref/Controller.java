@@ -1,8 +1,8 @@
-package com.SpringBoot.springbootRef;
+package com.springboot.springbootref;
 
-import com.SpringBoot.springbootRef.Registration.Register;
-import com.SpringBoot.springbootRef.Registration.RegisterRequest;
-import com.SpringBoot.springbootRef.Registration.RegisterService;
+import com.springboot.springbootref.registration.RegisterRequest;
+import com.springboot.springbootref.registration.Register;
+import com.springboot.springbootref.registration.RegisterService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.ResponseEntity;
@@ -20,17 +20,17 @@ public class Controller {
         this.registerService = registerService;
     }
     @GetMapping("api/v1/registers")
-    public List<Register> getRegisters() {
-        return registerService.getRegisters();
+    public List<Register> registers() {
+        return registerService.registers();
     } // retrieving all users from the register Service.
 
     @GetMapping("api/v1/registers/{register_Id}")
-    public Optional<Register> getRegister(@PathVariable("register_Id") Integer Id) {
-        return registerService.getRegister(Id);
+    public Optional<Register> register(@PathVariable("register_Id") Integer Id) {
+        return registerService.register(Id);
     } // retrieving single user from the register Service based on the id.
 
     @PostMapping("api/v1/registers")
-    public ResponseEntity<String> saveRegister(@RequestBody RegisterRequest registerrequest) throws Exception {
+    public RegisterRequest saveRegister(@RequestBody RegisterRequest registerrequest) throws Exception {
 
         System.out.println(registerrequest.username());
 
@@ -47,7 +47,7 @@ public class Controller {
             e.printStackTrace();
         }
 
-        return ResponseEntity.status(status).body(result); // returning Response to post method
+        return registerrequest; // returning Response to post method
     }
 
     @DeleteMapping("api/v1/registers/{register_id}")
