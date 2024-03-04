@@ -9,8 +9,5 @@ import org.junit.jupiter.api.Test;
         glue = "com.springboot.springbootref.cucumber.stepsdef"
 )
 public class CucumberTest {
-    @Test
-    public void contextLoads() {
-        // This method is intentionally empty. It is used as a placeholder for the Cucumber tests.
-    }
+
 }
