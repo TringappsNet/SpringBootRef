@@ -46,9 +46,12 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.bouncycastle:bcpkix-jdk15on:1.69'
 	testImplementation 'org.codehaus.groovy:groovy-all:3.0.20'
+	implementation 'org.slf4j:slf4j-api'
+
 
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
