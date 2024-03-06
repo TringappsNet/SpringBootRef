@@ -1,4 +1,4 @@
-package com.springboot.springbootref.KafkaController;
+package com.springboot.springbootref.kafkacontroller;
 
 import com.springboot.springbootref.service.KafkaMessage;
 import org.springframework.beans.factory.annotation.Autowired;
