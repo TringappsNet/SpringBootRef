@@ -1,4 +1,4 @@
-package com.SpringBoot.springbootRef.Registration;
+package com.springboot.springbootref.registration;
 
 import org.springframework.stereotype.Service;
 
@@ -13,10 +13,10 @@ public class RegisterService {
     public RegisterService(RegisterDao registerDao) {
         this.registerDao = registerDao;
     }
-    public List<Register> getRegisters() {
+    public List<Register> registers() {
         return registerDao.selectAllRegister(); // retrieving all users from the repository.
     }
-    public Optional<Register> getRegister(Integer Id) {
+    public Optional<Register> register(Integer Id) {
         return registerDao.selectRegister(Id);// retrieving single user from the repository based on the id.
     }
 
@@ -59,7 +59,7 @@ public class RegisterService {
         }
     }
     public Register fetchRegister(Integer Id){
-        Optional<Register> register = getRegister(Id); // fetch the user
+        Optional<Register> register = register(Id); // fetch the user
         Register r1 = null; // initially the register object r1 is null.
 
         if(register.isPresent()){ // If user is present setting the r1 null object to data.

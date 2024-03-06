@@ -1,10 +1,21 @@
+server:
+  port: 9191
 spring:
   profiles:
     active: dev
   datasource:
-    url: jdbc:postgresql://192.168.1.50:5433/ops
+    url: jdbc:postgresql://localhost:5432/ops
     username: postgres
-    password: admin
+    password: root
+    # Optional connection timeout, max-idle, and min-idle
+    connection-timeout: 30000  # Milliseconds
+    max-idle: 5
+    min-idle: 1
+    # Optional Hikari configuration
+    hikari:
+      poolName: myPool
+      leakDetectionThreshold: 30000  # Milliseconds
+      # Consider adding other Hikari properties as needed
   jpa:
     hibernate:
       ddl-auto: update
@@ -13,3 +24,6 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format-sql: true
     show-sql: true
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
