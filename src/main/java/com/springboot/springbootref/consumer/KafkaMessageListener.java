@@ -6,9 +6,9 @@ import org.springframework.kafka.annotation.KafkaListener;
 
 
 @Service
-public class kafkamessagelistener {
+public class KafkaMessageListener {
 
-    Logger log = LoggerFactory.getLogger(kafkamessagelistener.class);
+    Logger log = LoggerFactory.getLogger(KafkaMessageListener.class);
 
     @KafkaListener(topics = "demo-2", groupId = "grp-1")
     public void consume1(String message)
