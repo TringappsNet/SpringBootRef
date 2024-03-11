@@ -1,15 +1,45 @@
 spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/new_db
+      username: admin
+      password: your_password
   profiles:
     active: dev
   datasource:
-    url: jdbc:postgresql://192.168.1.50:5433/ops
-    username: postgres
-    password: admin
+    postgres:
+      url: jdbc:postgresql://192.168.1.50:5433/ops
+      driver-class-name: org.postgresql.Driver
+      username: postgres
+      password: admin
+    mssql:
+      url: jdbc:sqlserver://192.168.1.50:1433;databaseName=ops;encrypt=true;trustServerCertificate=true
+      username: sqlserver
+      password: Welcome@ta
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    mysql:
+      url: jdbc:mysql://localhost:3306/ops?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      username: root
+      password: your_password
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    oracle:
+      url: jdbc:oracle:thin:@//localhost:1521/xe
+      username: system
+      password: your_password
+      driver-class-name: oracle.jdbc.OracleDriver
   jpa:
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
         format-sql: true
     show-sql: true
+logging:
+  level:
+    root: INFO
+    org:
+      hibernate:
+        SQL: DEBUG
+springdoc:
+  swagger-ui:
+    path: api-docs/swagger-ui/index.html
