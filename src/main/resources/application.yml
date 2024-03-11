@@ -3,7 +3,7 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/new_db
       username: admin
-      password: Dinesh
+      password: your_password
   profiles:
     active: dev
   datasource:
@@ -20,12 +20,12 @@ spring:
     mysql:
       url: jdbc:mysql://localhost:3306/ops?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
       username: root
-      password: Dinesh@2002
+      password: your_password
       driver-class-name: com.mysql.cj.jdbc.Driver
     oracle:
       url: jdbc:oracle:thin:@//localhost:1521/xe
       username: system
-      password: Dinesh@2002
+      password: your_password
       driver-class-name: oracle.jdbc.OracleDriver
   jpa:
     hibernate:

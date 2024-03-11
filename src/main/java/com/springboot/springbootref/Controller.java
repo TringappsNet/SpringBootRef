@@ -38,6 +38,7 @@ public class Controller {
     private final CollegeService collegeService;
     @Autowired
     private final BookService bookService;
+
     public Controller(RegisterService registerService, StaffService staffService, ShopsService shopService, CollegeService collegeService, BookService bookService) {
         this.staffService= staffService;
         this.registerService = registerService;

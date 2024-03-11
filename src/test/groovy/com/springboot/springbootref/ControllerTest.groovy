@@ -1,5 +1,11 @@
 package com.springboot.springbootref
 
+import com.springboot.springbootref.books.BookService
+import com.springboot.springbootref.colleges.CollegeService
+import com.springboot.springbootref.shops.ShopsService
+import com.springboot.springbootref.staff.StaffService
+import org.springframework.beans.factory.annotation.Autowired
+
 import static org.mockito.Mockito.verify
 import static org.mockito.Mockito.times
 import com.springboot.springbootref.registration.Register
@@ -25,11 +31,20 @@ class ControllerTest {
 
     @Mock
     private RegisterService registerService
+    @Mock
+    private StaffService staffService
+    @Mock
+    private ShopsService shopsService
+    @Mock
+    private CollegeService collegeService
+    @Mock
+    private BookService bookService
+
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this)
-        controller = new Controller(registerService)
+        controller = new Controller(registerService,staffService,shopsService,collegeService,bookService)
     }
 
     @Test
