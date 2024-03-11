@@ -27,7 +27,7 @@ import java.util.Objects;
         basePackages     = {"com.springboot.springbootref.colleges"},
         transactionManagerRef = "collegeTransactionManager"
 )
-public class collegeDataSourceConfig {
+public class CollegeDataSourceConfig {
     @Autowired
     private Environment env;
     @Bean(name= "oracleDataSource")

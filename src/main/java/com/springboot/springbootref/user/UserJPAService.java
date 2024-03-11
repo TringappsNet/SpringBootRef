@@ -11,7 +11,7 @@ public class UserJPAService {
     @Autowired
     private UserRepository userRepository;
 
-    public List<User> UsersAll() {
+    public List<User> usersAll() {
         List<User> users =  userRepository.findAll();
         users.forEach(s -> s.setNotPersisted("It is not stored in database"));
         return users;

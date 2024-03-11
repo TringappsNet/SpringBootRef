@@ -99,7 +99,7 @@ public class Controller {
         }
     }
     @GetMapping("/staffs")
-    public List<Staff> Staffs() {
+    public List<Staff> getStaffs() {
         return staffService.allStaff();
     } // retrieving all users from the register Service.
 

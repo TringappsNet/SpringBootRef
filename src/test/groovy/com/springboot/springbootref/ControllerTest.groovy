@@ -1,13 +1,11 @@
 package com.springboot.springbootref
 
+import static org.mockito.Mockito.verify
+import static org.mockito.Mockito.times
 import com.springboot.springbootref.books.BookService
 import com.springboot.springbootref.colleges.CollegeService
 import com.springboot.springbootref.shops.ShopsService
 import com.springboot.springbootref.staff.StaffService
-import org.springframework.beans.factory.annotation.Autowired
-
-import static org.mockito.Mockito.verify
-import static org.mockito.Mockito.times
 import com.springboot.springbootref.registration.Register
 import com.springboot.springbootref.registration.RegisterRequest
 import com.springboot.springbootref.registration.RegisterService
@@ -31,20 +29,23 @@ class ControllerTest {
 
     @Mock
     private RegisterService registerService
+
     @Mock
     private StaffService staffService
+
     @Mock
     private ShopsService shopsService
+
     @Mock
     private CollegeService collegeService
+
     @Mock
     private BookService bookService
-
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this)
-        controller = new Controller(registerService,staffService,shopsService,collegeService,bookService)
+        controller = new Controller(registerService, staffService, shopsService, collegeService, bookService)
     }
 
     @Test
@@ -59,7 +60,7 @@ class ControllerTest {
 
         // Verify
         Assertions.assertEquals(registers, result)
-        Mockito.verify(registerService, times(1)).registers()
+        verify(registerService, times(1)).registers()
     }
 
     @Test
@@ -72,7 +73,7 @@ class ControllerTest {
         Optional<Register> result = controller.register(1)
 
         Assertions.assertEquals(register, result.get())
-        Mockito.verify(registerService, times(1)).register(1)
+        verify(registerService, times(1)).register(1)
     }
 
     @Test
@@ -84,7 +85,7 @@ class ControllerTest {
         ResponseEntity<String> responseEntity = controller.saveRegister(registerRequest)
 
         Assertions.assertEquals(HttpStatus.OK.value(), responseEntity.statusCode.value())
-        Mockito.verify(registerService, times(1)).addRegister(Mockito.any(RegisterRequest))
+        verify(registerService, times(1)).addRegister(Mockito.any(RegisterRequest))
     }
 
     @Test
@@ -101,7 +102,7 @@ class ControllerTest {
 
         // Verify
         Assertions.assertEquals(responseEntity, result)
-        Mockito.verify(registerService, times(1)).deleteRegisterById(userId)
+        verify(registerService, times(1)).deleteRegisterById(userId)
     }
 
     @Test
@@ -113,7 +114,7 @@ class ControllerTest {
         ResponseEntity<String> responseEntity = controller.editRegister(1, registerRequest)
 
         Assertions.assertEquals(HttpStatus.OK.value(), responseEntity.statusCode.value())
-        Mockito.verify(registerService, times(1)).editRegisterById(1, registerRequest)
+        verify(registerService, times(1)).editRegisterById(1, registerRequest)
     }
 
 }

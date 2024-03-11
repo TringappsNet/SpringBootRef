@@ -35,7 +35,7 @@ public class UserController {
     @GetMapping("/users")
     public List<User> findAll() {
         getLogger().info("Fetching All users");
-        return userJPAService.UsersAll();
+        return userJPAService.usersAll();
 
     }
 
