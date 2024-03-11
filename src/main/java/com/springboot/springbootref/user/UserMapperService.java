@@ -8,19 +8,28 @@ import javax.swing.tree.RowMapper;
 import javax.swing.tree.TreePath;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
 public class UserMapperService implements RowMapper{
     @Autowired
     private JdbcTemplate jdbcTemplate;
+    @Autowired
+    private PostRepository postRepository;
 
     public User mapRow(ResultSet rs, int rowNum) throws SQLException {
         User user = new User();
+        //Long latestPostId = rs.getLong("latest_post_id");
+        //Post latestPost = postRepository.findAllByAuthorId(user.getId(),pageable).orElse(null); // Replace with your appropriate fetching method
         user.setId(rs.getLong("id"));
-        user.setFirstName(rs.getString("first_name"));
-        user.setLastName(rs.getString("last_name"));
+        user.setUsername(rs.getString("username"));
         user.setEmail(rs.getString("email"));
+        user.setCreatedAt(rs.getObject("createdat", LocalDateTime.class));
+        user.setUpdatedAt(rs.getObject("updatedat", LocalDateTime.class));
+        user.setVersion(rs.getLong("version"));
+        //user.setPosts(latestPost);
+        user.setNotPersisted("It is not stored in database");
         return user;
     }
 
@@ -35,8 +44,8 @@ public class UserMapperService implements RowMapper{
     }
 
     public User save(User user) {
-        String sql = "INSERT INTO users (first_name, last_name, email) VALUES (?, ?, ?)";
-        jdbcTemplate.update(sql, user.getFirstName(), user.getLastName(), user.getEmail());
+        String sql = "INSERT INTO users (username, email,created_at,updated_at) VALUES (?, ?,?,?)";
+        jdbcTemplate.update(sql, user.getUsername(), user.getEmail(), LocalDateTime.now(),LocalDateTime.now());
         return user;
     }
 
